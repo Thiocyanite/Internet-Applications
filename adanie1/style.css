@@ -1,0 +1,33 @@
+
+span#cena{
+  color: Red;
+  font-weight: bold;
+}
+
+p.wstęp{
+  font-style: italic;
+}
+
+img{
+  border-style: solid;
+  border-color: Blue;
+}
+
+:hover img{
+  border-style: solid;
+  border-color: Red;
+}
+
+h1 + h2{
+  letter-spacing: 5px;
+}
+
+p+p{
+  font-size: small;
+  color: Grey;
+}
+
+margin-left{
+  background-image: url("https://ecsmedia.pl/c/terror-w-iext43262819.jpg");
+  background-repeat: repeat-y
+}
