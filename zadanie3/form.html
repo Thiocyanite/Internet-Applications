@@ -2,8 +2,9 @@
 <html>
 <head>
   <metacharset="utf-8"/>
-  <title>JavaScript
-  </title>
+  <script type="text/javascript" src="form_check.js"></script>
+  <link rel= "stylesheet" type= "text/css" href= "style.css" title= "Arkusz stylów CSS"></linkrel>
+  <title>JavaScript </title>
 </head>
 <body>
   <formname="dane_osobowe">
@@ -13,6 +14,7 @@
       </td>
       <td>
         <input type="text" name="f_imie">
+        <spanclass="err"id="e_imie"/>
       </td>
     </tr>
     <tr>
@@ -63,7 +65,7 @@
       <td>Uwagi</td>
       <td><textarea rows="5" cols="15" name="uwagi"></textarea></td>
     </tr>
-    <tr><tdcolspan="2"><input type="submit" value="Prześlij"></td>
+    <tr><tdcolspan="2"><input type="submit" value="Prześlij"  onclick="return validate(this.form);"></td>
     </tr>
   </table>
 </form>
