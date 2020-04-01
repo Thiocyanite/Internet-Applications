@@ -1,20 +1,19 @@
 <!doctype html>
 <html>
 <head>
-  <metacharset="utf-8"/>
+  <meta charset="utf-8"/>
   <script type="text/javascript" src="form_check.js"></script>
-  <link rel= "stylesheet" type= "text/css" href= "style.css" title= "Arkusz stylów CSS"></linkrel>
+  <link rel= "stylesheet" type= "text/css" href= "style.css" title= "Arkusz stylów CSS"></link>
   <title>JavaScript </title>
 </head>
 <body>
-  <formname="dane_osobowe">
+  <form name="dane_osobowe">
   <table>
     <tr>
-      <td>Imię
-      </td>
+      <td>Imię</td>
       <td>
         <input type="text" name="f_imie">
-        <spanclass="err"id="e_imie"/>
+        <span class="err" id="e_imie"/>
       </td>
     </tr>
     <tr>
@@ -65,7 +64,7 @@
       <td>Uwagi</td>
       <td><textarea rows="5" cols="15" name="uwagi"></textarea></td>
     </tr>
-    <tr><tdcolspan="2"><input type="submit" value="Prześlij"  onclick="return validate(this.form);"></td>
+    <tr><td colspan="2"><input type="submit" value="Prześlij" onclick="return validate(this.form);"></td>
     </tr>
   </table>
 </form>

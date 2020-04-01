@@ -1,11 +1,19 @@
 
 function validate(formularz) {
-  checkAndFocus(formularz.elements["f_imie"].value,"imie!",isWhiteSpaceOrEmpty);
+  checkAndFocus(formularz.elements["f_imie"],"imie!",isWhiteSpaceOrEmpty);
   checkString(formularz.elements["f_nazwisko"].value,"nazwisko!", isWhiteSpaceOrEmpty);
   checkString(formularz.elements["f_kod"].value, "kod!", isWhiteSpaceOrEmpty);
-  checkString(formularz.elements["f_ulica"].value),"ulica!", isWhiteSpaceOrEmpty);
+  checkString(formularz.elements["f_ulica"].value,"ulica!", isWhiteSpaceOrEmpty);
   checkString(formularz.elements["f_miasto"].value,"miasto!",isWhiteSpaceOrEmpty);
   checkEmail(formularz.elements["f_email"].value,"mejl!",isEmailInvalid);
+}
+
+function showElement(what) {
+      document.getElementById(what).style.visibility = 'visible';
+}
+
+function hideElement(what) {
+      document.getElementById(what).style.visibility = 'visible';
 }
 
 function checkString(what, comment){
