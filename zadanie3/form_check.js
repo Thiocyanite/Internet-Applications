@@ -1,19 +1,11 @@
 
 function validate(formularz) {
   checkAndFocus(formularz.elements["f_imie"],"imie!",isWhiteSpaceOrEmpty);
-  checkString(formularz.elements["f_nazwisko"].value,"nazwisko!", isWhiteSpaceOrEmpty);
-  checkString(formularz.elements["f_kod"].value, "kod!", isWhiteSpaceOrEmpty);
-  checkString(formularz.elements["f_ulica"].value,"ulica!", isWhiteSpaceOrEmpty);
-  checkString(formularz.elements["f_miasto"].value,"miasto!",isWhiteSpaceOrEmpty);
-  checkEmail(formularz.elements["f_email"].value,"mejl!",isEmailInvalid);
-}
-
-function showElement(what) {
-      document.getElementById(what).style.visibility = 'visible';
-}
-
-function hideElement(what) {
-      document.getElementById(what).style.visibility = 'visible';
+  checkAndFocus(formularz.elements["f_nazwisko"].value,"nazwisko!", isWhiteSpaceOrEmpty);
+  checkAndFocus(formularz.elements["f_kod"].value, "kod!", isWhiteSpaceOrEmpty);
+  checkAndFocus(formularz.elements["f_ulica"].value,"ulica!", isWhiteSpaceOrEmpty);
+  checkAndFocus(formularz.elements["f_miasto"].value,"miasto!",isWhiteSpaceOrEmpty);
+  checkAndFocus(formularz.elements["f_email"].value,"mejl!",isEmailInvalid);
 }
 
 function checkString(what, comment){
@@ -93,6 +85,7 @@ function checkEmailAndFocus(obj, msg){
   {
     document.getElementById(errorFieldName).innerHTML = msg;
     obj.focus();
+    alert("Podaj "+comment+"!");
     return false;
   }
   else
@@ -101,3 +94,60 @@ function checkEmailAndFocus(obj, msg){
     return true;
   }
 }
+
+
+function alterRows(i, e) {
+    if (e) {
+        if (i % 2 == 1) {
+            e.setAttribute("style", "background-color: Aqua;");
+        }
+        e = e.nextSibling;
+        while (e && e.nodeType != 1) {
+            e = e.nextSibling;
+        }
+        alterRows(++i, e);
+    }
+}
+
+function nextNode(e) {
+    while (e && e.nodeType != 1) {
+        e = e.nextSibling;
+    }
+    return e;
+}
+function prevNode(e) {
+    while (e && e.nodeType != 1) {
+        e = e.previousSibling;
+    }
+    return e;
+}
+function swapRows(b) {
+    let tab = prevNode(b.previousSibling);
+    let tBody = nextNode(tab.firstChild);
+    let lastNode = prevNode(tBody.lastChild);
+    tBody.removeChild(lastNode);
+    let firstNode = nextNode(tBody.firstChild);
+    tBody.insertBefore(lastNode, firstNode);
+}
+
+function cnt(form, msg, maxSize) {
+    if (form.value.length > maxSize) form.value = form.value.substring(0, maxSize);
+    else msg.innerHTML = maxSize - form.value.length;
+}
+
+submitButton = document.querySelectorAll("input[type=submit]")[0];
+
+submitButton.addEventListener('click', function(event) {
+    if (!validate(this.form)) event.preventDefault(); // A to na szczęście tak
+});
+
+womanButton = document.querySelectorAll("input[value=f_k]")[0];
+manButton = document.querySelectorAll("input[value=f_m]")[0];
+womanButton.onclick = function() {
+    showElement("NazwiskoPanienskie");
+};
+manButton.onclick = function() {
+    hideElement("NazwiskoPanienskie");
+};
+
+alterRows(1, document.getElementsByTagName("tr")[0]);
