@@ -1,15 +1,17 @@
-<?php
-  $link=mysqli_connect("localhost","scott","tiger","instytut");
-  if(!$link){
-    printf("Connect failed:%s\n",mysqli_connect_error());
-    exit();
-  }
-print<<<KONIEC
+
   <html>
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   </head>
   <body>
+<?php
+session_start();
+if (isset($_SESSION["blad"])){
+  printf("Nie udalo sie dodac");
+  unset($_SESSION["blad"]);
+}
+ ?>
+
     <form action="file06_redirect.php" method="POST">
       id_prac <input type="text" name="id_prac">
       nazwisko <input type="text"name="nazwisko">
@@ -19,5 +21,3 @@ print<<<KONIEC
     <form action="file06_get.php" method="POST">
       <input type="submit" value="Lista">
     </form>
-KONIEC;
-?>

@@ -1,8 +1,13 @@
 <?php
+session_start();
   $link=mysqli_connect("localhost","scott","tiger","instytut");
   if(!$link){
     printf("Connect failed:%s\n",mysqli_connect_error());
     exit();
+  }
+  if (isset($_SESSION["sukces"])){
+    printf("Udalo sie dodac");
+    unset($_SESSION["sukces"]);
   }
 print<<<KONIEC
   <html>
