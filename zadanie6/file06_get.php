@@ -5,9 +5,9 @@ session_start();
     printf("Connect failed:%s\n",mysqli_connect_error());
     exit();
   }
-  if (isset($_SESSION["sukces"])){
+  if (isset($_SESSION["sukces"])&$_SESSION["sukces"]==":)"){
     printf("Udalo sie dodac");
-    unset($_SESSION["sukces"]);
+    $_SESSION["sukces"]=" ";
   }
 print<<<KONIEC
   <html>

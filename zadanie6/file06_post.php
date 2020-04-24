@@ -6,9 +6,9 @@
   <body>
 <?php
 session_start();
-if (isset($_SESSION["blad"])){
+if (isset($_SESSION["blad"]) & $_SESSION["blad"]==":("){
   printf("Nie udalo sie dodac");
-  unset($_SESSION["blad"]);
+  $_SESSION["blad"]=":)";
 }
  ?>
 

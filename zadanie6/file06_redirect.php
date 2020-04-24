@@ -18,7 +18,7 @@ session_start();
       header("Location: file06_post.php");
     }
     else{
-      $_SESSION["sukces"]="Dodano";
+      $_SESSION["sukces"]=":)";
       header("Location: file06_get.php");
     }
     $stmt->close();
